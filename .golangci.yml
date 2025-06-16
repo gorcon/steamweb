@@ -1,0 +1,29 @@
+output:
+  formats:
+    - format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
+
+# SEE: https://golangci-lint.run/usage/configuration/
+linters-settings:
+  godox:
+    keywords:
+      - "BUG"
+      - "FIXME"
+    #  - "TODO"
+
+linters:
+  enable-all: true
+  disable:
+    - exportloopref # is deprecated (since v1.60.2)
+    - exhaustruct # mad linter
+    - wrapcheck # mad linter
+    - tagliatelle # no idea how to fix it - there are both camel and snake tags on Steam api
+
+issues:
+  exclude:
+  exclude-rules:
+  exclude-dirs:
+    - vendor/
+  exclude-files:
+    - ".*_test.go$"
